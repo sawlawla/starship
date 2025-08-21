@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://7q4ma6yd3x1r"]
+
+[ext_resource type="Script" uid="uid://ca5wyvpjmdedp" path="res://scenes/meteor.gd" id="1_pxso2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tcwo0"]
+radius = 46.0977
+
+[node name="Meteor" type="Area2D"]
+collision_layer = 2
+collision_mask = 9
+script = ExtResource("1_pxso2")
+
+[node name="MeteorImg" type="Sprite2D" parent="."]
+position = Vector2(50, 51)
+scale = Vector2(0.588889, 0.583333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(49, 45)
+shape = SubResource("CircleShape2D_tcwo0")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
